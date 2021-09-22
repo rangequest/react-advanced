@@ -3,14 +3,19 @@ import MoviePage from './context/MoviePage'
 import UserContext from './context/userContext'
 
 export default class App extends Component {
+  handleLoggedIn = username => {
+    console.log('Getting the user: ' + username)
+    const user = { name: 'RQ' }
+    this.setState({ currentUser: user })
+  }
   state = {
     currentUser: {
-      name: 'Range Quest',
+      name: 'Not Logged In',
     },
   }
   render() {
     return (
-      <UserContext.Provider value={this.state.currentUser}>
+      <UserContext.Provider value={{ currentUser: this.state.currentUser, onLoggedIn: this.handleLoggedIn }}>
         <div>
           <MoviePage />
         </div>

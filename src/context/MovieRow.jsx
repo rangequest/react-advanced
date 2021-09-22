@@ -1,9 +1,15 @@
 import React, { useContext } from 'react'
+import Login from './Login'
 import UserContext from './userContext'
 
 function MovieRow(props) {
-  const currentUser = useContext(UserContext)
-  return <div>{currentUser.name}</div>
+  const userContext = useContext(UserContext)
+  return (
+    <div>
+      Movie Row: {userContext.currentUser.name ? userContext.currentUser.name : 'None'}
+      <Login />
+    </div>
+  )
 }
 
 export default MovieRow

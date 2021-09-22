@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import MovieRow from './MovieRow'
 import UserContext from './userContext'
 
@@ -7,7 +7,12 @@ export default class MovieList extends Component {
     console.log(this.context)
   }
   render() {
-    return <MovieRow />
+    return (
+      <Fragment>
+        Movie List: {this.context.currentUser.name ? this.context.currentUser.name : 'None'}
+        <MovieRow />
+      </Fragment>
+    )
   }
 }
 
